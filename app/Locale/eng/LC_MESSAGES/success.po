@@ -1,0 +1,2 @@
+msgid "success.email.available"
+msgstr "Email is available."

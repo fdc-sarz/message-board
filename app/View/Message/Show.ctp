@@ -23,7 +23,7 @@ $this->assign('title', 'Message > Message Thread');
           <img src="<?php echo Router::url(['controller' => 'document', 'action' => 'renderProfilePicture']); ?>/{{ message.Sender.id }}" class="rounded" style="width:200px; height: 200px;" />
         </div>
         <div class="card-block px-2">
-          <p class="card-text">{{ message.MessageThread.message }}</p>
+          <p class="card-text" style="white-space: pre-line;">{{ message.MessageThread.message }}</p>
         </div>
         <div ng-if="loggedId != message.Sender.id" class="card-header border-0">
           <img src="<?php echo Router::url(['controller' => 'document', 'action' => 'renderProfilePicture']); ?>/{{ message.Sender.id }}" class="rounded" style="width:200px; height: 200px;" />

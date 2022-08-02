@@ -7,7 +7,13 @@ if($this->Session->read('userDetail')) {
     <?php echo __('label.welcome'); ?> <?php echo $this->Session->read('userDetail.name'); ?>!
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <li><span>Account Settings</span></li>
+      <li>
+        <?php echo $this->Html->link(__('label.profile'), ['controller' => 'user', 'action' => 'profile'], ['class' => 'dropdown-item']); ?>
+      </li>
+      <li>
+        <?php echo $this->Html->link(__('label.message_lists'), ['controller' => 'message', 'action' => 'index'], ['class' => 'dropdown-item']); ?>
+      </li>
+      <li><span class="dropdown-item">Account Settings</span></li>
       <li>
         <?php echo $this->Html->link(__('label.upload_photo'), ['controller' => 'account', 'action' => 'uploadPhoto'], ['class' => 'dropdown-item']); ?>
       </li>
@@ -19,6 +25,9 @@ if($this->Session->read('userDetail')) {
       </li>
       <li>
         <?php echo $this->Html->link(__('label.change_password'), ['controller' => 'account', 'action' => 'changePassword'], ['class' => 'dropdown-item']); ?>
+      </li>
+      <li>
+        <?php echo $this->Html->link(__('label.upload_photo'), ['controller' => 'account', 'action' => 'uploadPhoto'], ['class' => 'dropdown-item']); ?>
       </li>
       <li><hr class="dropdown-divider"></li>
       <li>

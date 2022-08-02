@@ -395,3 +395,5 @@ Cache::config('_cake_model_', array(
 	'serialize' => ($engine === 'File'),
 	'duration' => $duration
 ));
+
+define('BASE_URL', 'http://local.messageboard.net/');

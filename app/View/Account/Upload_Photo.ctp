@@ -4,14 +4,15 @@ $this->assign('title', __('label.account') . ' > ' . __('label.upload_photo'));
 ?>
 <script type="text/javascript">
   window.uploadPhoto = {
-    originalPhoto: 'https://cdnb.artstation.com/p/assets/images/images/028/602/621/original/sweet-waffles-frame-logocustom.gif?1594932860'
+    originalPhoto: '<?php echo Router::url(['controller' => 'document', 'action' => 'renderProfilePicture', $this->Session->read('userDetail.id')]); ?>'
   }
 </script>
 <div ng-controller="UploadPhotoController" class="upload-photo-page">
   <h2><?php echo __('label.upload_photo'); ?></h2>
   <div class="text-center">
     <?php
-      echo $this->Form->create('User', ['type' => 'file', 'class' => 'row']);
+      echo $this->element('FormError');
+      echo $this->Form->create('UserDetail', ['type' => 'file', 'class' => 'row']);
     ?>
     <div class="col-12 mb-2">
       <img ng-if="(photo || originalPhoto) && !generating" ng-src="{{ photo || originalPhoto }}" class="rounded" alt="200x200" style="width:200px;height:200px;" />

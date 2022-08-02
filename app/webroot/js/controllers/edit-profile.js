@@ -1,8 +1,8 @@
 app = app || angular.module('app', []);
 
-app.controller('UploadPhotoController', uploadPhotoController);
+app.controller('EditProfileController', editProfileController);
 
-function uploadPhotoController($scope) {
+function editProfileController($scope) {
   
   $scope.photo = null;
   $scope.originalPhoto = angular.copy(window.uploadPhoto.originalPhoto);
@@ -13,11 +13,14 @@ function uploadPhotoController($scope) {
     $("#profile_picture").trigger("click");
   }
   
-  $scope.onUploadPicture = function(e) {
-    if(!$scope.photo) {
-      e.preventDefault();
-    }
-  }
+  $("#birthdate-temp").datepicker({
+    maxDate: 0,
+    dateFormat: 'm/dd/yy',
+    altField: "#UserDetailBirthDate",
+    altFormat: "yy-mm-dd",
+    changeMonth: true,
+    changeYear: true
+  });
   
   $(document).on("change", "#profile_picture", function(e) {
     var file = e.currentTarget.files[0];
@@ -34,5 +37,4 @@ function uploadPhotoController($scope) {
       reader.readAsDataURL(file);
     }
   });
-  
 }

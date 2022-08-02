@@ -13,13 +13,15 @@ $title = $this->fetch('title');
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('bootstrap.min');
+		echo $this->Html->css('jquery-ui.min');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		?>
 		<script type="text/javascript">
 			window.app_config = {
-				base_url: '<?php echo BASE_URL; ?>'
+				base_url: '<?php echo BASE_URL; ?>',
+				loggedId: <?php echo $this->Session->read('userDetail.id') ?? 0; ?>,
 			}
 			window.app_messages = {
 				cannot_connect_msg: '<?php echo __d('errors', 'error.unable_to_connect'); ?>'
@@ -49,6 +51,7 @@ $title = $this->fetch('title');
 	<?php
 	echo $this->Html->script([
 		'jquery.3.6.0.min',
+		'jquery-ui.min',
 		'bootstrap.min',
 		'angular.1.8.2.min',
 		'app'

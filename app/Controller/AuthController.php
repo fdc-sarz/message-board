@@ -29,7 +29,6 @@
     public function register($return = '') {
       if($this->request->is('post')) {
         $request_data = $this->request->data;
-        $request_data['User']['created'] = date('Y-m-d H:i:s');
         $request_data['User']['created_ip'] = $this->request->clientIp();
         $this->User->set($request_data);
         if($this->User->validates()) {

@@ -10,6 +10,7 @@
 /tags
 *.mo
 composer.lock
+/app/webroot/files/*
 
 # IDE and editor specific files #
 #################################

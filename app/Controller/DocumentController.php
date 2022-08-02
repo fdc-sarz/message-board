@@ -17,7 +17,7 @@
         $profile_picture_path = WWW_ROOT . '/files/profile_picture/' . $userDetail['UserDetail']['uid'] . '/' . $userDetail['UserDetail']['profile_picture'];
       }
       if(!file_exists($profile_picture_path)) {
-        $profile_picture_path = WWW_ROOT . '/files/default/profile_picture.jpeg';
+        $profile_picture_path = WWW_ROOT . '/img/default/profile_picture.jpeg';
       }
       $mime = getimagesize($profile_picture_path)['mime'];
       header('Content-Type: ' . $mime);

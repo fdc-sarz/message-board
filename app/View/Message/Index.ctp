@@ -10,10 +10,15 @@ $this->assign('title', 'Message > Message Lists');
     <?php echo $this->Html->link('New Message', ['controller' => 'message', 'action' => 'addMessage'], ['class' => 'btn btn-secondary']); ?>
   </div>
   <div class="container">
+    <input type="text" ng-model="search" />
+  </div>
+  <div class="container">
     <div class="message-lists-container">
       <div id="message-{{ message.Message.id }}" ng-repeat="message in messages" class="card flex-row flex-wrap mb-2">
         <div ng-if="loggedId == message.User.id" class="card-header border-0">
-          <img src="<?php echo Router::url(['controller' => 'document', 'action' => 'renderProfilePicture']); ?>/{{ message.User.id }}" class="rounded" style="width:200px; height: 200px;" />
+          <a href="<?php echo Router::url(['controller' => 'user', 'action' => 'profile']); ?>/{{ message.User.id }}">
+            <img src="<?php echo Router::url(['controller' => 'document', 'action' => 'renderProfilePicture']); ?>/{{ message.User.id }}" class="rounded" style="width:200px; height: 200px;" />
+          </a>
         </div>
         <div class="card-block px-2">
           <p class="card-text">{{ message.MessageThread.message | limitTo: 250 }}{{message.MessageThread.message.length > 250 ? '...' : '' }}</p>
@@ -21,7 +26,9 @@ $this->assign('title', 'Message > Message Lists');
           <a ng-click="onDeleteMessage(message, $index)" class="btn btn-danger btn-sm">Delete Message</a>
         </div>
         <div ng-if="loggedId != message.User.id" class="card-header border-0">
-          <img src="<?php echo Router::url(['controller' => 'document', 'action' => 'renderProfilePicture']); ?>/{{ message.User.id }}" class="rounded" style="width:200px; height: 200px;" />
+          <a href="<?php echo Router::url(['controller' => 'user', 'action' => 'profile']); ?>/{{ message.User.id }}">
+            <img src="<?php echo Router::url(['controller' => 'document', 'action' => 'renderProfilePicture']); ?>/{{ message.User.id }}" class="rounded" style="width:200px; height: 200px;" />
+          </a>
         </div>
         <div class="w-100"></div>
         <div class="card-footer w-100 text-muted text-end">

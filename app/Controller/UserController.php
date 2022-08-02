@@ -8,7 +8,15 @@
       // die(var_dump($this->Auth->user()));
     }
     
-    public function profile() {
+    public function profile($id) {
+      $user = $this->User->findById($id);
+      if(!$user) {
+        $this->redirect(['controller' => 'user', 'action' => 'dashboard']);
+      }
+      $this->set('user', $user);
+    }
+    
+    public function dashboard() {
     }
     
     public function loadRecipients() {

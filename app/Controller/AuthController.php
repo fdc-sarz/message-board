@@ -9,7 +9,7 @@
     public function beforeFilter() {
       $this->Auth->allow();
       if($this->Auth->user()) {
-        $this->redirect(Router::url(['controller' => 'user', 'action' => 'profile']));
+        $this->redirect(Router::url(['controller' => 'user', 'action' => 'dashboard']));
       }
     }
     
@@ -19,7 +19,7 @@
           // session user data
           $this->Session->write('userDetail', $this->Auth->user());
           $this->User->updateLastLogin($this->Auth->user('id'));
-          $this->redirect(['controller' => 'user', 'action' => 'profile']);
+          $this->redirect(['controller' => 'user', 'action' => 'dashboard']);
         } else {
           $this->set('form_errors', array('email' => [ __d('errors', 'error.invalid_login_detail') ]));
         }

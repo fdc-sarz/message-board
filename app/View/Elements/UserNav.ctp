@@ -8,7 +8,7 @@ if($this->Session->read('userDetail')) {
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
       <li>
-        <?php echo $this->Html->link(__('label.profile'), ['controller' => 'user', 'action' => 'profile'], ['class' => 'dropdown-item']); ?>
+        <?php echo $this->Html->link(__('label.profile'), ['controller' => 'user', 'action' => 'dashboard'], ['class' => 'dropdown-item']); ?>
       </li>
       <li>
         <?php echo $this->Html->link(__('label.message_lists'), ['controller' => 'message', 'action' => 'index'], ['class' => 'dropdown-item']); ?>

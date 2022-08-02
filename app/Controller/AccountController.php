@@ -13,7 +13,7 @@
           $this->UserDetail->save();
           $user = $this->Auth->user();
           $this->updateSession();
-          $this->redirect(['controller' => 'user', 'action' => 'profile']);
+          $this->redirect(['controller' => 'user', 'action' => 'dashboard']);
         } else {
           $this->set('form_errors', $photo['errors']);
         }
@@ -47,7 +47,7 @@
           $this->UserDetail->save();
           $this->User->save();
           $this->updateSession();
-          $this->redirect(['controller' => 'user', 'action' => 'profile']);
+          $this->redirect(['controller' => 'user', 'action' => 'dashboard']);
         } else {
           $this->set('form_errors', array_merge($photo['errors'] ?? [], $this->User->validationErrors, $this->UserDetail->validationErrors));
         }
@@ -70,7 +70,7 @@
         if($this->User->validates()) {
           $this->User->save();
           $this->updateSession();
-          $this->redirect(['controller' => 'user', 'action' => 'profile']);
+          $this->redirect(['controller' => 'user', 'action' => 'dashboard']);
         }
         $this->set('form_errors', $this->User->validationErrors);
       } else {
@@ -89,7 +89,7 @@
         $this->User->set($request_data);
         if($this->User->validates()) {
           $this->User->save();
-          $this->redirect(['controller' => 'user', 'action' => 'profile']);
+          $this->redirect(['controller' => 'user', 'action' => 'dashboard']);
         }
         $this->set('form_errors', $this->User->validationErrors);
       }

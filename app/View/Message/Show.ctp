@@ -20,13 +20,17 @@ $this->assign('title', 'Message > Message Thread');
     <div class="message-lists-container">
       <div ng-repeat="message in messages" class="card flex-row flex-wrap mb-2">
         <div ng-if="loggedId == message.Sender.id" class="card-header border-0">
-          <img src="<?php echo Router::url(['controller' => 'document', 'action' => 'renderProfilePicture']); ?>/{{ message.Sender.id }}" class="rounded" style="width:200px; height: 200px;" />
+          <a href="<?php echo Router::url(['controller' => 'user', 'action' => 'profile']); ?>/{{ message.Sender.id }}">
+            <img src="<?php echo Router::url(['controller' => 'document', 'action' => 'renderProfilePicture']); ?>/{{ message.Sender.id }}" class="rounded" style="width:200px; height: 200px;" />
+          </a>
         </div>
         <div class="card-block px-2">
           <p class="card-text" style="white-space: pre-line;">{{ message.MessageThread.message }}</p>
         </div>
         <div ng-if="loggedId != message.Sender.id" class="card-header border-0">
-          <img src="<?php echo Router::url(['controller' => 'document', 'action' => 'renderProfilePicture']); ?>/{{ message.Sender.id }}" class="rounded" style="width:200px; height: 200px;" />
+          <a href="<?php echo Router::url(['controller' => 'user', 'action' => 'profile']); ?>/{{ message.Sender.id }}">
+            <img src="<?php echo Router::url(['controller' => 'document', 'action' => 'renderProfilePicture']); ?>/{{ message.Sender.id }}" class="rounded" style="width:200px; height: 200px;" />
+          </a>
         </div>
         <div class="w-100"></div>
         <div class="card-footer w-100 text-muted text-end">
